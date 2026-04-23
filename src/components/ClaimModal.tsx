@@ -46,7 +46,7 @@ export function ClaimModal({ gift, onClose, onConfirm }: ClaimModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 pt-6 sm:items-center sm:pt-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="claim-modal-title"
