@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply font-body text-slate-700 antialiased;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #fff3d1 0%, transparent 55%),
+    radial-gradient(900px 500px at 110% 10%, #fde1de 0%, transparent 55%),
+    linear-gradient(180deg, #f3faff 0%, #e9f4fb 100%);
+  background-attachment: fixed;
+  min-height: 100dvh;
+}
+
+button {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-deep/60 focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+}
+
+.soft-card {
+  @apply rounded-3xl bg-white/80 backdrop-blur-sm border border-white shadow-card;
+}
