@@ -127,7 +127,7 @@ export default function App() {
         {!loading && !error && gifts.length > 0 && (
           <>
             <section aria-labelledby="disponibili-title" className="mt-2">
-              <div className="mb-4 flex items-baseline justify-between px-1">
+              <div className="mb-[40px] flex items-baseline justify-between px-1">
                 <h2
                   id="disponibili-title"
                   className="font-display text-xl font-700 text-slate-700 sm:text-2xl"

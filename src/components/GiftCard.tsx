@@ -21,7 +21,7 @@ export function GiftCard({ gift, onSelect, adminMode, onFree, disabled }: GiftCa
       ].join(' ')}
     >
       {gift.priorita && !taken && (
-        <div className="absolute -top-3 left-5 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-honey to-[#f0a84d] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
+        <div className="absolute -top-[-5px] right-[5px] inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-honey to-[#f0a84d] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
           <span aria-hidden>⭐</span> Importante
         </div>
       )}
