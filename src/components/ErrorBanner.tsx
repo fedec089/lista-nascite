@@ -5,19 +5,20 @@ interface ErrorBannerProps {
 
 export function ErrorBanner({ message, onRetry }: ErrorBannerProps) {
   return (
-    <div className="mx-auto max-w-2xl rounded-3xl border border-rose-200 bg-rose-50/80 p-5 text-center shadow-card">
-      <p className="text-2xl" aria-hidden>⚠️</p>
-      <p className="mt-2 font-display text-lg font-700 text-rose-700">
-        Qualcosa è andato storto
+    <div className="keepsake mx-auto max-w-xl p-6 sm:p-7">
+      <p className="u-eyebrow text-ink">Qualcosa non ha funzionato</p>
+      <p className="mt-3 font-display text-xl leading-snug text-ink sm:text-2xl">
+        Non siamo riusciti a caricare la lista.
       </p>
-      <p className="mt-1 text-sm text-rose-600">{message}</p>
+      <p className="mt-2 text-sm text-ink-muted">{message}</p>
       {onRetry && (
         <button
           type="button"
           onClick={onRetry}
-          className="mt-4 rounded-full bg-rose-500 px-5 py-2 text-sm font-bold text-white shadow-card transition hover:brightness-110"
+          className="mt-5 inline-flex items-center gap-2 rounded-full bg-sky px-5 py-2.5 text-[0.8125rem] font-semibold tracking-wide text-white shadow-sm transition hover:bg-sky-strong"
         >
           Riprova
+          <span aria-hidden>↻</span>
         </button>
       )}
     </div>

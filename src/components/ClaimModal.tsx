@@ -46,7 +46,7 @@ export function ClaimModal({ gift, onClose, onConfirm }: ClaimModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 pt-6 sm:items-center sm:pt-4"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 pt-8 sm:items-center sm:pt-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="claim-modal-title"
@@ -55,28 +55,21 @@ export function ClaimModal({ gift, onClose, onConfirm }: ClaimModalProps) {
         type="button"
         aria-label="Chiudi"
         onClick={() => !submitting && onClose()}
-        className="absolute inset-0 bg-gradient-to-br from-sky-deep/40 via-slate-900/30 to-blush/30 backdrop-blur-sm animate-fade-in"
+        className="absolute inset-0 bg-ink/35 backdrop-blur-[2px] animate-fade-in"
       />
 
-      <div className="relative w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl animate-fade-in sm:p-8">
-        <div className="mb-1 text-4xl" aria-hidden>
-          🎁
-        </div>
-        <h2 id="claim-modal-title" className="font-display text-2xl font-800 text-slate-800">
-          Stai scegliendo
-        </h2>
-        <p className="mt-1 font-display text-xl font-700 text-sky-deep">
+      <div className="keepsake relative w-full max-w-md animate-panel-in p-6 sm:p-8">
+        <p className="u-eyebrow">Stai scegliendo</p>
+        <h2 id="claim-modal-title" className="mt-2 font-display text-3xl leading-tight text-ink sm:text-4xl">
           {gift.nome}
-        </p>
+        </h2>
         {gift.dettaglio && (
-          <p className="mt-1 text-sm text-slate-500">{gift.dettaglio}</p>
+          <p className="mt-1.5 text-sm text-ink-muted">{gift.dettaglio}</p>
         )}
 
-        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+        <form onSubmit={handleSubmit} className="mt-7 space-y-5">
           <label className="block">
-            <span className="mb-1 block text-sm font-semibold text-slate-700">
-              Come ti chiami?
-            </span>
+            <span className="u-eyebrow mb-2 block">Il tuo nome</span>
             <input
               ref={inputRef}
               type="text"
@@ -85,41 +78,44 @@ export function ClaimModal({ gift, onClose, onConfirm }: ClaimModalProps) {
               placeholder="Es. Zia Giulia"
               disabled={submitting}
               maxLength={80}
-              className="w-full rounded-2xl border-2 border-sky-powder bg-white px-4 py-3 text-base text-slate-800 placeholder:text-slate-400 focus:border-sky-deep focus:outline-none disabled:opacity-50"
+              autoComplete="name"
+              className="w-full border-b border-ink/20 bg-transparent px-0 py-3 font-display text-2xl text-ink placeholder:font-body placeholder:text-base placeholder:text-ink-soft/60 focus:border-ink focus:outline-none disabled:opacity-50"
             />
           </label>
 
-          <p className="text-xs text-slate-500">
-            Il tuo nome sarà visibile accanto al regalo scelto così gli altri sanno che è già stato preso.
+          <p className="text-[0.8125rem] leading-relaxed text-ink-muted">
+            Il tuo nome apparirà accanto al regalo così nessun altro lo sceglie.
           </p>
 
           {error && (
-            <div className="rounded-xl bg-rose-50 px-3 py-2 text-sm text-rose-600">
+            <div className="rounded-xl border border-hairline bg-blush/40 px-3 py-2.5 text-[0.8125rem] text-ink">
               {error}
             </div>
           )}
 
-          <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+          <div className="flex items-center justify-between gap-3 pt-2">
             <button
               type="button"
               onClick={onClose}
               disabled={submitting}
-              className="rounded-full px-5 py-2.5 text-sm font-semibold text-slate-500 transition hover:bg-slate-100 disabled:opacity-50"
+              className="text-[0.8125rem] font-semibold uppercase tracking-label text-ink-muted underline-offset-4 transition hover:text-ink hover:underline disabled:opacity-50"
             >
               Annulla
             </button>
             <button
               type="submit"
               disabled={submitting || !name.trim()}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-deep px-5 py-2.5 text-sm font-bold text-white shadow-card transition hover:brightness-110 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex items-center gap-2 rounded-full bg-sky px-6 py-3 font-body text-[0.8125rem] font-semibold tracking-wide text-white shadow-sm transition hover:bg-sky-strong active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? (
                 <>
-                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/50 border-t-white" />
-                  Salvataggio…
+                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+                  Salvataggio
                 </>
               ) : (
-                <>Conferma <span aria-hidden>💛</span></>
+                <>
+                  Conferma <span aria-hidden>→</span>
+                </>
               )}
             </button>
           </div>

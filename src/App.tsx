@@ -107,19 +107,19 @@ export default function App() {
         adminMode={adminMode}
       />
 
-      <main className="mx-auto max-w-3xl px-4 pb-20 sm:px-6">
+      <main className="mx-auto max-w-3xl px-6 pb-24">
         {loading && <Loader />}
 
         {!loading && error && <ErrorBanner message={error} onRetry={load} />}
 
         {!loading && !error && gifts.length === 0 && (
-          <div className="soft-card mx-auto max-w-xl p-8 text-center">
-            <p className="text-3xl" aria-hidden>🐻</p>
-            <p className="mt-2 font-display text-lg font-700 text-slate-700">
-              La lista è ancora vuota
+          <div className="keepsake mx-auto max-w-xl p-8 text-center">
+            <p className="u-eyebrow">In preparazione</p>
+            <p className="mt-3 font-display text-2xl leading-snug text-ink">
+              La lista è ancora vuota.
             </p>
-            <p className="mt-1 text-sm text-slate-500">
-              Torna tra poco, stiamo aggiungendo i primi regali!
+            <p className="mt-2 text-sm text-ink-muted">
+              Stiamo scegliendo i primi regali per Marco. Torna tra poco.
             </p>
           </div>
         )}
@@ -127,26 +127,23 @@ export default function App() {
         {!loading && !error && gifts.length > 0 && (
           <>
             <section aria-labelledby="disponibili-title" className="mt-2">
-              <div className="mb-[40px] flex items-baseline justify-between px-1">
-                <h2
-                  id="disponibili-title"
-                  className="font-display text-xl font-700 text-slate-700 sm:text-2xl"
-                >
+              <div className="mb-6 flex items-baseline justify-between gap-4">
+                <h2 id="disponibili-title" className="u-section-title">
                   Ancora disponibili
                 </h2>
-                <span className="text-sm font-semibold text-sky-deep">
-                  {disponibili.length}
+                <span className="u-eyebrow tabular-nums">
+                  {disponibili.length.toString().padStart(2, '0')}
                 </span>
               </div>
 
               {disponibili.length === 0 ? (
-                <div className="soft-card p-6 text-center">
-                  <p className="text-2xl" aria-hidden>🎉</p>
-                  <p className="mt-2 font-display text-lg font-700 text-slate-700">
-                    Tutti i regali sono stati scelti!
+                <div className="keepsake p-8 text-center">
+                  <p className="u-eyebrow">Tutto pronto</p>
+                  <p className="mt-3 font-display text-2xl leading-snug text-ink">
+                    Tutti i regali sono stati scelti.
                   </p>
-                  <p className="mt-1 text-sm text-slate-500">
-                    Grazie di cuore a tutti 💛
+                  <p className="mt-2 text-sm text-ink-muted">
+                    Grazie di cuore a chi ha partecipato.
                   </p>
                 </div>
               ) : (
@@ -159,20 +156,17 @@ export default function App() {
             </section>
 
             {presi.length > 0 && (
-              <section aria-labelledby="presi-title" className="mt-12">
-                <div className="mb-4 flex items-baseline justify-between px-1">
-                  <h2
-                    id="presi-title"
-                    className="font-display text-xl font-700 text-slate-500 sm:text-2xl"
-                  >
+              <section aria-labelledby="presi-title" className="mt-16">
+                <div className="mb-4 flex items-baseline justify-between gap-4">
+                  <h2 id="presi-title" className="u-section-title text-ink-muted">
                     Già scelti
                   </h2>
-                  <span className="text-sm font-semibold text-slate-400">
-                    {presi.length}
+                  <span className="u-eyebrow tabular-nums">
+                    {presi.length.toString().padStart(2, '0')}
                   </span>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex flex-col">
                   {presi.map((g) => (
                     <GiftCard
                       key={g.id}
@@ -188,11 +182,13 @@ export default function App() {
           </>
         )}
 
-        <footer className="mt-16 text-center text-xs text-slate-400">
-          <p>
-            Fatto con <span aria-hidden>💛</span> per accogliere Marco<br/>
-            Grazie da Mamma e Papà!
-          </p>
+        <footer className="mt-20 flex flex-col items-center gap-3 border-t border-hairline pt-8 text-center">
+          <span className="ornament">
+            <span className="u-eyebrow">Grazie da Mamma e Papà</span>
+          </span>
+          <span aria-hidden className="text-lg leading-none text-ink/70">
+            ♥
+          </span>
         </footer>
       </main>
 

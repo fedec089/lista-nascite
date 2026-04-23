@@ -1,39 +1,44 @@
 /** @type {import('tailwindcss').Config} */
+
+const withAlpha = (variable) => `oklch(from var(${variable}) l c h / <alpha-value>)`;
+
 export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Baloo 2"', 'system-ui', 'sans-serif'],
-        body: ['Nunito', 'system-ui', 'sans-serif'],
+        display: ['"Young Serif"', 'ui-serif', 'Georgia', 'serif'],
+        body: ['Manrope', 'system-ui', 'sans-serif'],
       },
       colors: {
-        sky: {
-          powder: '#d6ecf7',
-          soft: '#b8dcef',
-          deep: '#6aaed1',
-        },
-        honey: '#f6c667',
-        blush: '#f4c7c3',
-        cream: '#fffaf2',
+        paper: withAlpha('--color-paper'),
+        ink: withAlpha('--color-ink'),
+        'ink-muted': withAlpha('--color-ink-muted'),
+        'ink-soft': withAlpha('--color-ink-soft'),
+        hairline: withAlpha('--color-hairline'),
+        sky: withAlpha('--color-sky'),
+        'sky-strong': withAlpha('--color-sky-strong'),
+        'sky-surface': withAlpha('--color-sky-surface'),
+        honey: withAlpha('--color-honey'),
+        'honey-surface': withAlpha('--color-honey-surface'),
+        blush: withAlpha('--color-blush'),
       },
-      boxShadow: {
-        card: '0 10px 30px -12px rgba(106, 174, 209, 0.35)',
-        lift: '0 20px 45px -18px rgba(106, 174, 209, 0.45)',
+      letterSpacing: {
+        label: '0.18em',
       },
       keyframes: {
         'fade-in': {
-          '0%': { opacity: '0', transform: 'translateY(8px)' },
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-6px)' },
+        'panel-in': {
+          '0%': { opacity: '0', transform: 'translateY(8px) scale(0.99)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
         },
       },
       animation: {
-        'fade-in': 'fade-in 0.3s ease-out',
-        float: 'float 4s ease-in-out infinite',
+        'fade-in': 'fade-in 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
+        'panel-in': 'panel-in 0.32s cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

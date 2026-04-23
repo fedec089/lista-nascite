@@ -1,15 +1,19 @@
 export function Loader() {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 py-16 text-sky-deep">
-      <div className="relative h-14 w-14">
-        <div className="absolute inset-0 animate-spin rounded-full border-4 border-sky-powder border-t-sky-deep" />
-        <span className="absolute inset-0 flex items-center justify-center text-xl" aria-hidden>
-          🍼
-        </span>
+    <div className="flex flex-col items-start gap-4 py-12">
+      <div className="flex items-center gap-3">
+        <span className="h-4 w-4 animate-spin rounded-full border-2 border-hairline border-t-ink" />
+        <span className="u-eyebrow">Caricamento lista</span>
       </div>
-      <p className="font-display text-sm font-600 tracking-wide text-slate-500">
-        Carico la lista regali…
-      </p>
+      <div className="flex w-full flex-col gap-3">
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="keepsake h-24 animate-pulse opacity-60"
+            style={{ animationDelay: `${i * 120}ms` }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
