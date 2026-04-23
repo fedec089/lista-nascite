@@ -187,7 +187,7 @@ export default function App() {
             <span className="u-eyebrow">Grazie da Mamma e Papà</span>
           </span>
           <span aria-hidden className="text-lg leading-none text-ink/70">
-            ♥
+            💛
           </span>
         </footer>
       </main>

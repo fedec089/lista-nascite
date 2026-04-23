@@ -33,8 +33,7 @@ export function Header({ disponibili, totali, onTitleClick, adminMode }: HeaderP
         </button>
 
         <p className="mt-6 max-w-md font-body text-base leading-relaxed text-ink-muted sm:text-lg">
-          Questa è la nostra lista nascita. Scegli un regalo — scrivi il tuo nome e
-          sarà <em className="not-italic text-ink">custodito</em> per lui.
+          Aiutaci ad accoglierlo nel mondo 💛
         </p>
 
         <div className="mt-8 flex flex-wrap items-baseline gap-x-6 gap-y-3 border-t border-hairline pt-5">
